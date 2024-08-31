@@ -1,50 +1,104 @@
-# React + TypeScript + Vite
+# Catalogue - React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Quick start
 
-Currently, two official plugins are available:
+Install dependencies:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- npm i
 
-## Expanding the ESLint configuration
+Create .env file in project root and add:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- VITE_API_BASE_URL=https://dummyjson.com
 
-- Configure the top-level `parserOptions` property like this:
+To start the development server, use the following command:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- npm run dev
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 1. Introduction
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Welcome to the documentation for the catalogue React application. This app is designed for job interview. The documentation will guide you through the setup, usage, and contribution process for the project.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 2. Project Structure
+
+This section outlines the general structure of the project and provides an overview of the key folders and files.
+
+- src/: Contains all the source code for the application.
+- public/: Contains the static assets and the main HTML file.
+- node_modules/: Contains all the npm packages installed.
+
+## 3. Installation and Setup
+
+Prerequisites
+Before setting up the project, ensure you have the following installed:
+
+- Node.js (>= 20.x.x)
+
+### Steps to Set Up the Project
+
+Clone the repository:
+
+- git clone https://github.com/hrvojebarbaric/catalogue.git
+- cd react-app
+
+Install dependencies:
+
+- npm i
+
+Create .env file in project root and add:
+
+- VITE_API_BASE_URL=https://dummyjson.com
+
+## 4. Running the Application
+
+To start the development server, use the following command:
+
+- npm run dev
+
+## 5. Environment Variables
+
+The application uses environment variables to manage configuration. These are defined in the .env file in the root directory. Common variables include:
+
+VITE_API_BASE_URL: The base URL for the API.
+VITE_APP_ENV: The environment in which the app is running (development, production, etc.).
+
+## 6. Folder Structure
+
+The project is organized into the following folders:
+
+- src/components/: Contains all the React components with styled components files and type files for TS.
+- src/utils/: Contains centralized file for API functions and error handling.
+- src/constants/: Contains static constants.
+
+## 7. Routing
+
+Routing in this app is managed using React Router. Right now this is SPA so there is no routes.
+
+## 8. API Integration
+
+This project use React Query along with a centralized file for API functions and error handling. All API functions and hooks are in a central files. You can find this files in utils/api/. Right now we only have one file products.ts.
+
+## 9. Styling
+
+Styling is managed using Styled Components. Global styles are stored in globalStyle.ts.
+
+## 10. Testing
+
+Tests are written using Vites and React Testing Library.
+Right now we do not have any tests because we do not have helper functions.
+
+### Running Tests
+
+To run the tests, use the following command:
+
+- npm test
+
+## 11. Deployment
+
+Deployment is configured for platforms like Netlify, Vercel, or any other preferred service.
+
+### Example Deployment with Netlify
+
+Create a production build:
+
+- npm run build
+- Deploy the build/ directory to Netlify.
