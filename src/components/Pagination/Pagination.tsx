@@ -24,7 +24,7 @@ const Pagination = (props: PaginationProps) => {
         return searchParams;
       });
     }
-  }, [page]);
+  }, [page, setSearchParams, total, totalPages]);
 
   const handleClick = (page: number) => {
     setSearchParams((searchParams) => {

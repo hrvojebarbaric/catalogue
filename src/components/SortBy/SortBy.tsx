@@ -14,12 +14,11 @@ const SortBy = () => {
   const order = searchParams.get("order") ?? "";
 
   const handleSortClick = (sortBy?: string) => {
+    const orderSearch = order === "ASC" ? "DESC" : "ASC";
     setSearchParams(
       (searchParams) => {
         searchParams.set("sortBy", sortBy!);
-        order === "ASC"
-          ? searchParams.set("order", "DESC")
-          : searchParams.set("order", "ASC");
+        searchParams.set("order", orderSearch);
         return searchParams;
       },
       { replace: true }
