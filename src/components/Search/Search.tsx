@@ -25,7 +25,7 @@ const Search = () => {
   };
 
   const handleEnterClick = (e: { key: string }) => {
-    e.key === "Enter" && handleSearchClick();
+    return e.key === "Enter" ? handleSearchClick() : null;
   };
 
   return (
