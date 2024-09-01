@@ -43,6 +43,7 @@ export type Product = {
   };
   images: string[];
   thumbnail: string;
+  quantity: number;
 };
 
 export type Products = {

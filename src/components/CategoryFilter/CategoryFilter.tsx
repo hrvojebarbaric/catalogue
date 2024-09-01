@@ -38,7 +38,7 @@ const CategoryFilter = () => {
         defaultValue={category}
       >
         <option value="all">all categories</option>
-        {data.map((category) => (
+        {data?.map((category) => (
           <option key={category} value={category}>
             {category}
           </option>
