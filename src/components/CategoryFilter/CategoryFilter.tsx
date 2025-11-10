@@ -1,7 +1,8 @@
-import products from "../../utils/api/products";
 import Spinner from "../Spinner/Spinner";
 import { useSearchParams } from "react-router-dom";
 import { CategoryFilterStyled } from "./CategoryFilter.style";
+import products from "../../utils/api/products/hooks";
+import { text } from "../../translations/en";
 
 const CategoryFilter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,7 +17,11 @@ const CategoryFilter = () => {
   }
 
   if (isError) {
-    return <span>Error: {error.message}</span>;
+    return (
+      <span>
+        {text.content.error} {error.message}
+      </span>
+    );
   }
 
   const handleDropDownChange = (category: string) => {
@@ -31,13 +36,13 @@ const CategoryFilter = () => {
 
   return (
     <CategoryFilterStyled>
-      <p>Filter by category:</p>
+      <p>{text.content.filterCategory}</p>
       <select
         name="categories"
         onChange={(e) => handleDropDownChange(e.target.value)}
         defaultValue={category}
       >
-        <option value="all">all categories</option>
+        <option value="all">{text.content.allCategories}</option>
         {data?.map((category) => (
           <option key={category} value={category}>
             {category}

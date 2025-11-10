@@ -1,6 +1,7 @@
 import { Rating } from "react-simple-star-rating";
 import { ReviewStyled } from "./Review.style";
 import { ReviewProps } from "./Review.types";
+import { LANGUAGE } from "../../../constants/products";
 
 const Review = (props: ReviewProps) => {
   const { date, reviewerName, comment, rating } = props;
@@ -16,7 +17,7 @@ const Review = (props: ReviewProps) => {
         readonly={true}
         allowFraction={true}
       />
-      <p>{parseDate.toLocaleDateString("HR")}</p>
+      <p>{parseDate.toLocaleDateString(LANGUAGE)}</p>
       <p className="comment">{comment}</p>
     </ReviewStyled>
   );

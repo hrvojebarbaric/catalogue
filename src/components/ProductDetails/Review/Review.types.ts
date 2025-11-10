@@ -1,6 +1,6 @@
-export type ReviewProps = {
+export interface ReviewProps {
   date: Date;
   reviewerName: string;
   comment: string;
   rating: number;
-};
+}

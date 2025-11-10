@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export type CarouselProps = {
+export interface CarouselProps {
   children: ReactNode;
-};
+}

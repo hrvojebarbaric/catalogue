@@ -3,6 +3,7 @@ import { CartType } from "./Cart.types";
 import { CartStyled } from "./Cart.style";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { BsClipboardPlusFill } from "react-icons/bs";
+import { text } from "../../translations/en";
 
 const Cart = () => {
   const [cart, setCart] = useLocalStorageState<CartType>("cart", {});
@@ -39,7 +40,7 @@ const Cart = () => {
 
   return (
     <CartStyled>
-      <h2>Cart</h2>
+      <h2>{text.content.cart}</h2>
       <div className="cartProducts">
         {getProducts().map((product) => {
           const price =
@@ -59,13 +60,16 @@ const Cart = () => {
                 </p>
               </div>
               <div className="rightSide">
-                <h4>${Math.ceil(price)}</h4>
+                <h4>
+                  {text.symbols.dollar}
+                  {Math.ceil(price)}
+                </h4>
                 <div className="buttons">
                   <button
                     disabled={price <= 0}
                     onClick={() => handleUpdateQuantity(product.id)}
                   >
-                    -
+                    {text.symbols.minus}
                   </button>
                   <p>{product.quantity}</p>
                   <button
@@ -76,10 +80,10 @@ const Cart = () => {
                     }
                     onClick={() => handleUpdateQuantity(product.id, "increase")}
                   >
-                    +
+                    {text.symbols.plus}
                   </button>
                   <button onClick={() => handleRemoveProduct(product.id)}>
-                    Remove
+                    {text.buttons.remove}
                   </button>
                 </div>
               </div>
@@ -88,9 +92,9 @@ const Cart = () => {
         })}
       </div>
       <div className="totalPrice">
-        Total:
+        {text.content.total}
         <h3>
-          $
+          {text.symbols.dollar}
           {Math.ceil(
             getProducts().reduce(
               (accumulator, product) =>

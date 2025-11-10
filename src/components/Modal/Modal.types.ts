@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
-export type ModalProps = {
+export interface ModalProps {
   children: ReactNode;
   showModal: boolean;
   setShowModal: (value: boolean) => void;
-};
+}

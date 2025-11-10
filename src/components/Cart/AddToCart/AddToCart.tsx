@@ -1,8 +1,9 @@
 import useLocalStorageState from "use-local-storage-state";
-import { Product } from "../../../utils/api/products";
 import { CartType } from "../Cart.types";
 import { AddToCartProps } from "./AddToCart.types";
 import { MouseEvent } from "react";
+import { Product } from "../../../utils/api/products/types";
+import { text } from "../../../translations/en";
 
 const AddToCart = (props: AddToCartProps) => {
   const { product } = props;
@@ -32,7 +33,7 @@ const AddToCart = (props: AddToCartProps) => {
         }
         onClick={(e) => addToCart(e, product)}
       >
-        Add to Cart
+        {text.buttons.addToCart}
       </button>
     </div>
   );

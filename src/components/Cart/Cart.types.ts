@@ -1,5 +1,5 @@
-import { Product } from "../../utils/api/products";
+import { Product } from "../../utils/api/products/types";
 
-export type CartType = {
+export interface CartType {
   [productId: string]: Product;
-};
+}

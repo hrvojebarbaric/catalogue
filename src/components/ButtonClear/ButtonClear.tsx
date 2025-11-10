@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { ButtonClearStyled } from "./ButtonClear.style";
 import { ButtonClearProps } from "./ButtonClear.types";
+import { text } from "../../translations/en";
 
 const ButtonClear = (props: ButtonClearProps) => {
   const { queryArray } = props;
@@ -19,7 +20,9 @@ const ButtonClear = (props: ButtonClearProps) => {
     );
   };
   return (
-    <ButtonClearStyled onClick={handleSearchClear}>Clear</ButtonClearStyled>
+    <ButtonClearStyled data-testid="clear-button" onClick={handleSearchClear}>
+      {text.buttons.clear}
+    </ButtonClearStyled>
   );
 };
 

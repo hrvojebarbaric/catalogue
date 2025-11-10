@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { PRODUCTS_PER_PAGE } from "../../constants/products";
 import { PaginationStyled } from "./Pagination.style";
 import { PaginationProps } from "./Pagination.types";
+import { text } from "../../translations/en";
 
 const Pagination = (props: PaginationProps) => {
   const { total } = props;
@@ -49,7 +50,7 @@ const Pagination = (props: PaginationProps) => {
   return (
     <PaginationStyled>
       <button disabled={!(page > 1)} onClick={() => handleClick(page - 1)}>
-        Previous
+        {text.buttons.previous}
       </button>
       <div className="buttonPages">{renderPageButtons}</div>
       <p className="textPages">
@@ -59,7 +60,7 @@ const Pagination = (props: PaginationProps) => {
         disabled={!(totalPages > page)}
         onClick={() => handleClick(page + 1)}
       >
-        Next
+        {text.buttons.next}
       </button>
     </PaginationStyled>
   );

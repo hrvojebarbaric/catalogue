@@ -3,6 +3,7 @@ import "rc-slider/assets/index.css";
 import { useSearchParams } from "react-router-dom";
 import ButtonClear from "../ButtonClear/ButtonClear";
 import { PriceFilterStyled } from "./PriceFilter.style";
+import { text } from "../../translations/en";
 
 const PriceFilter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,7 +26,7 @@ const PriceFilter = () => {
 
   return (
     <PriceFilterStyled>
-      <p>Filter by price:</p>
+      <p>{text.content.filterPrice}</p>
       <Slider
         className="slider"
         key={[priceMin, priceMax].toString()}

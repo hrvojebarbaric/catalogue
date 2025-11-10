@@ -10,6 +10,7 @@ import Modal from "./components/Modal/Modal";
 import { BsCart4 } from "react-icons/bs";
 import useLocalStorageState from "use-local-storage-state";
 import { CartType } from "./components/Cart/Cart.types";
+import { text } from "./translations/en";
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
@@ -27,7 +28,7 @@ const App = () => {
         <BsCart4 size="2em" />
         <p>{getProducts().length}</p>
       </button>
-      <h1>Product catalog</h1>
+      <h1>{text.content.title}</h1>
       <Search />
       <div className="sortAndFilters">
         <PriceFilter />

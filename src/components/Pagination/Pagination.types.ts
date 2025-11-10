@@ -1,3 +1,3 @@
-export type PaginationProps = {
+export interface PaginationProps {
   total: number;
-};
+}

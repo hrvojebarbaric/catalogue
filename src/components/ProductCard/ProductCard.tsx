@@ -7,6 +7,7 @@ import { ProductCardProps } from "./ProductCard.types";
 import AddToCart from "../Cart/AddToCart/AddToCart";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { BsClipboardPlusFill } from "react-icons/bs";
+import { text } from "../../translations/en";
 
 const ProductCard = (props: ProductCardProps) => {
   const { product } = props;
@@ -28,10 +29,11 @@ const ProductCard = (props: ProductCardProps) => {
           <p>${product?.price}</p>
           <p>{product?.description?.substring(0, 100)}...</p>
           <p>
-            <BsBoxSeamFill /> min. order: {product.minimumOrderQuantity}
+            <BsBoxSeamFill /> {text.content.minOrder}
+            {product.minimumOrderQuantity}
           </p>
           <p>
-            <BsClipboardPlusFill /> stock: {product.stock}
+            <BsClipboardPlusFill /> {text.content.stock} {product.stock}
           </p>
           <AddToCart product={product} />
         </div>

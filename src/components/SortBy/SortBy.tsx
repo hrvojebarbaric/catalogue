@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import ButtonClear from "../ButtonClear/ButtonClear";
 import { SortByStyled } from "./SortBy.style";
+import { text } from "../../translations/en";
 
 const SortBy = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -41,7 +42,7 @@ const SortBy = () => {
 
   return (
     <SortByStyled>
-      <p>Sort by:</p>
+      <p>{text.content.sortBy}</p>
       {sortByProperties.map((item) =>
         renderSortButton(item.btnText, item.sortByProperty)
       )}

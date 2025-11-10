@@ -1,3 +1,3 @@
-export type ButtonClearProps = {
+export interface ButtonClearProps {
   queryArray: string[];
-};
+}

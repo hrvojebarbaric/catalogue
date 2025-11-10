@@ -6,6 +6,7 @@ import Review from "./Review/Review";
 import { Rating } from "react-simple-star-rating";
 import { ProductDetailsStyled } from "./ProductDetails.style";
 import { ProductDetailsProps } from "./ProductDetails.types";
+import { text } from "../../translations/en";
 
 const ProductDetails = (props: ProductDetailsProps) => {
   const { product } = props;
@@ -21,7 +22,8 @@ const ProductDetails = (props: ProductDetailsProps) => {
           allowFraction={true}
         />
         <p>
-          {product?.rating} / 5 ({product?.reviews.length} Recommended)
+          {product?.rating} {text.content.maxRating} ({product?.reviews.length}{" "}
+          {text.content.recommended})
         </p>
       </div>
       <p>{product?.description}</p>
@@ -32,50 +34,65 @@ const ProductDetails = (props: ProductDetailsProps) => {
       </Carousel>
       <div className="information">
         <div className="generalInfo">
-          <InfoText text={"Category"} information={product?.category} />
-          <InfoText text={"Price"} information={product?.price} unit="€" />
           <InfoText
-            text={"Discount"}
-            information={product?.discountPercentage}
-            unit="%"
+            text={text.content.category}
+            information={product?.category}
           />
-          <InfoText text={"Stock"} information={product?.stock} unit="qty" />
+          <InfoText
+            text={text.content.price}
+            information={product?.price}
+            unit={text.symbols.dollar}
+          />
+          <InfoText
+            text={text.content.discount}
+            information={product?.discountPercentage}
+            unit={text.symbols.percentage}
+          />
+          <InfoText
+            text={text.content.stock}
+            information={product?.stock}
+            unit={text.content.qty}
+          />
         </div>
 
         <div className="dimensions">
           <InfoText
-            text={"Width"}
+            text={text.content.width}
             information={product?.dimensions?.width}
-            unit="cm"
+            unit={text.content.measurementUnit}
           />
           <InfoText
-            text={"Height"}
+            text={text.content.height}
             information={product?.dimensions?.height}
-            unit="cm"
+            unit={text.content.measurementUnit}
           />
           <InfoText
-            text={"Depth"}
+            text={text.content.depth}
             information={product?.dimensions?.depth}
-            unit="cm"
+            unit={text.content.measurementUnit}
           />
-          <InfoText text={"Weight"} information={product?.weight} unit="kg" />
+          <InfoText
+            text={text.content.weight}
+            information={product?.weight}
+            unit={text.content.weightUnit}
+          />
         </div>
         <div className="otherInfo">
           <InfoText
-            text={"Shipping"}
+            text={text.content.shipping}
             information={product?.shippingInformation}
           />
           <InfoText
-            text={"Warranty"}
+            text={text.content.warranty}
             information={product?.warrantyInformation}
           />
           <InfoText
-            text={"Return policy"}
+            text={text.content.returnPolicy}
             information={product?.returnPolicy}
           />
         </div>
       </div>
-      <h3>Reviews</h3>
+      <h3>{text.content.reviews}</h3>
       <Carousel>
         {product?.reviews.map((review, key) => (
           <Review key={key} {...review} />

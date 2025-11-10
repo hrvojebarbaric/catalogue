@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ButtonClear from "../ButtonClear/ButtonClear";
 import { SearchStyled } from "./Search.style";
+import { text } from "../../translations/en";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -33,7 +34,7 @@ const Search = () => {
       <input
         className="inputSearch"
         type="text"
-        placeholder="search"
+        placeholder={text.content.search}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={(e) => handleEnterClick(e)}
         value={inputValue}

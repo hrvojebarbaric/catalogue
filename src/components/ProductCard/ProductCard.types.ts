@@ -1,5 +1,5 @@
-import { Product } from "../../utils/api/products";
+import { Product } from "../../utils/api/products/types";
 
-export type ProductCardProps = {
+export interface ProductCardProps {
   product: Product;
-};
+}

@@ -1,9 +1,10 @@
-import products from "../../utils/api/products";
 import ProductCard from "../ProductCard/ProductCard";
 import Pagination from "../Pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import { ProductListStyled } from "./ProductList.style";
+import products from "../../utils/api/products/hooks";
+import { text } from "../../translations/en";
 
 const ProductList = () => {
   const [searchParams] = useSearchParams();
@@ -33,11 +34,13 @@ const ProductList = () => {
   }
 
   if (isError) {
-    return <span>Error: {error.message}</span>;
+    return (
+      <span>
+        {text.content.error} {error.message}
+      </span>
+    );
   }
 
-  // We need to implement price range on api.
-  // Right now api function call all products (197) when price range filter is on
   const lastPageIndex = page * 20;
   const firstPageIndex = lastPageIndex - 20;
 
