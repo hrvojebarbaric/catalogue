@@ -1,8 +1,8 @@
 import Spinner from "../Spinner/Spinner";
 import { useSearchParams } from "react-router-dom";
 import { CategoryFilterStyled } from "./CategoryFilter.style";
-import products from "../../utils/api/products/hooks";
 import { text } from "../../translations/en";
+import products from "../../services/products/hooks";
 
 const CategoryFilter = () => {
   const [searchParams, setSearchParams] = useSearchParams();

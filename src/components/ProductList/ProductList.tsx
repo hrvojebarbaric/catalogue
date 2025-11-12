@@ -3,8 +3,8 @@ import Pagination from "../Pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import { ProductListStyled } from "./ProductList.style";
-import products from "../../utils/api/products/hooks";
 import { text } from "../../translations/en";
+import products from "../../services/products/hooks";
 
 const ProductList = () => {
   const [searchParams] = useSearchParams();
